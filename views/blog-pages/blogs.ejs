@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('../partials/head'); %>
+</head>
+
+<body class="container-fluid">
+
+
+    <h5>BLOG POSTS</h5>
+        <a href='/create'><button class='btn btn-success position-absolute top-0 end-0'>
+            AddMyPost
+              </button></a>
+            
+            <main>
+                <% result.forEach(function(result) { %>
+
+                    <div class='card text-white bg-secondary mb-3'>
+
+                        <div class="card-header">
+                            <%= result.title %>
+                        </div>
+                        <div class="card-body">
+                            <div class='card-title'>
+                                <%= result.body %>
+                            </div>
+                            
+                            
+                            <div class="card-text">
+                                by: <%= result.name %>
+                            </div>
+                        </div>
+
+
+
+                    </div>
+
+                    <% }); %>
+            </main>
+
+            <footer>
+                <%- include('../partials/foot'); %>
+            </footer>
+
+</body>
+
+</html>
