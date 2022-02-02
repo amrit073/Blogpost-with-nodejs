@@ -1,14 +1,17 @@
 const express = require('express')
 const mongoose = require('mongoose')
 const methods = require('./routes/methods')
+const port = process.env.PORT || '5000';
 
 //replace <password> with your database password
-dburl = 'mongodb+srv://amrit:<password>@cluster0.ec3ss.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
+dburl = 'mongodb+srv://amrit:root@cluster0.ec3ss.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
 mongoose.connect(dburl, { useNewUrlParser: true, useUnifiedTopology: true }, (err) => {
   if (err) { console.log(err); }
   else {
     console.log('we good')
-    app.listen(5000)
+    app.listen(port,()=>{
+      console.log(`Server started at port ${port}`)
+    })
   }
 })
 
