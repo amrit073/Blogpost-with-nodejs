@@ -18,7 +18,7 @@ const feedData = (req, res) => {
 }
 
 const serveData = (req, res) => {
-    Blog.find((err, result) => {
+    Blog.find({},null,{sort:{createdAt:-1}},(err, result) => {
         if (err) {
             console.log(err);
         } else {
