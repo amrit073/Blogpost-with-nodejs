@@ -10,7 +10,8 @@ const feedData = (req, res) => {
     const blog = new Blog({
         name: req.body.name,
         title: req.body.title,
-        body: req.body.body
+        body: req.body.body,
+        comment: []
     })
     blog.save((err, result) => {
         if (err) { console.log(err); } else { res.redirect('/') }
@@ -18,7 +19,7 @@ const feedData = (req, res) => {
 }
 
 const serveData = (req, res) => {
-    Blog.find({},null,{sort:{createdAt:-1}},(err, result) => {
+    Blog.find({}, null, { sort: { createdAt: -1 } }, (err, result) => {
         if (err) {
             console.log(err);
         } else {
@@ -26,5 +27,19 @@ const serveData = (req, res) => {
         }
     })
 }
+const feedCom = (req, res) => {
+    console.log(req.body.commentid);
+    Blog.findOneAndUpdate(
+        { "_id": req.body.commentid },
+        {
+            $push: {
+                comment: req.body.comment
+            }
+        }
+    ).then((result)=>{console.log(result);})
+    
+    res.redirect('/')
 
-module.exports = { createData, feedData, serveData }
+}
+module.exports = { createData, feedData, serveData, feedCom }
+

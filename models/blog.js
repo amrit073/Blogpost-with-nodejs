@@ -14,9 +14,13 @@ const blogSchema = new Schema({
     body: {
         type: String,
         required: true
+    },
+    comment: {
+        type: Array
     }
+
 }, { timestamps: true })
 
 const Blog = mongoose.model('Blog', blogSchema)
-module.exports=Blog
+module.exports = Blog
 

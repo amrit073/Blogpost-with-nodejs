@@ -1,10 +1,10 @@
 {
   "name": "nodewithexpress",
   "version": "1.0.0",
-  "description": "",
+  "description": "Simple blog Post creator using nodejs and express. It uses mongoose for updating and retriving data from MongoDB",
   "main": "index.js",
   "scripts": {
-    "start":"node app.js"
+    "start": "node app.js"
   },
   "author": "Amrit",
   "license": "ISC",
@@ -12,5 +12,14 @@
     "ejs": "^3.1.6",
     "express": "^4.17.2",
     "mongoose": "^6.1.10"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/amrit073/Blogpost-with-nodejs.git"
+  },
+  "bugs": {
+    "url": "https://github.com/amrit073/Blogpost-with-nodejs/issues"
+  },
+  "homepage": "https://github.com/amrit073/Blogpost-with-nodejs#readme",
+  "engines": { "node": ">=0.12 < 17.5.0" }
 }
