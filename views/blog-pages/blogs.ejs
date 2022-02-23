@@ -5,10 +5,16 @@
     <%- include('../partials/head'); %>
 </head>
 <script>
-    function changeclass(){
-    document.getElementById('tobechanged').classList.remove('d-none')
+    function changeclass(cmtclass){
+    document.getElementsByClassName(cmtclass).classList.remove('d-none')
+    console.log(cmtclass);
 }
 </script>
+<style>
+    .togshow{
+        display: none;
+    }
+</style>
 <body class="container-fluid">
     <link rel='script' href="./getcom.js">
 
@@ -49,8 +55,9 @@
                     </form>
                 </div>
 
-                <div  onclick="changeclass()">Comments:</div>
-                <div id="tobechanged" class="d-none">
+                <div  onclick="document.getElementsByClassName('<%= `a` + result._id %>')[0].classList.remove('d-none')">Comments:(click to show)</div>
+                
+                <div class="d-none <%=  `a` + result._id %>">
                     <hr>
                     <% result.comment.forEach(function(comments){ %>
                         <li>
