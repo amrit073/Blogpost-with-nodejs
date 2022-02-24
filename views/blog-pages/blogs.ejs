@@ -5,10 +5,28 @@
     <%- include('../partials/head'); %>
 </head>
 <script>
-    function changeclass(cmtclass){
-    document.getElementsByClassName(cmtclass).classList.remove('d-none')
-    console.log(cmtclass);
-}
+    function showCom(id){
+        document.getElementsByClassName(id)[0].classList.remove('d-none')
+    }
+    function fetchCom(id){
+       fetch("/fetchCom", {
+     
+     // Adding method type
+     method: "POST",
+     headers: {
+         "Content-type": "application/json; charset=UTF-8"
+     },
+      
+     // Adding body or contents to send
+     body: JSON.stringify({
+         'title': "foo",
+         'body': "bar",
+         'userId': 1
+     })
+      
+     // Adding headers to the request
+ })
+    }
 </script>
 <style>
     .togshow{
@@ -55,9 +73,10 @@
                     </form>
                 </div>
 
-                <div  onclick="document.getElementsByClassName('<%= `a` + result._id %>')[0].classList.remove('d-none')">Comments:(click to show)</div>
+                <div  onclick="showCom('<%= result._id %>')">Comments:(click to show)</div>
+                <!-- <div  onclick="fetchCom('<%= result._id %>')">Comments:(click to show)</div> -->
                 
-                <div class="d-none <%=  `a` + result._id %>">
+                <div class="d-none <%=result._id %>">
                     <hr>
                     <% result.comment.forEach(function(comments){ %>
                         <li>
@@ -66,6 +85,7 @@
                         </li>
                         <% }); %>
                 </div>
+                
             </div>
             </div>
 
