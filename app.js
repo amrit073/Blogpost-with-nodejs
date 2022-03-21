@@ -13,7 +13,7 @@ mongoose.connect(dburl, { useNewUrlParser: true, useUnifiedTopology: true }, (er
     app.listen(port,()=>{
       console.log(`Server started at port ${port}`)
     })
-  }var cors = require('cors')
+  }
 })
 
 const app = express()
