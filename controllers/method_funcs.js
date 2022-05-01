@@ -47,5 +47,18 @@ const fetchCom = (req, res)=>{
     console.log(req.body);
     res.status(200)   
 }
-module.exports = { createData, feedData, serveData, feedCom, fetchCom }
+
+const forReact =(req, res) =>{
+    Blog.find({}, null, { sort: { createdAt: -1 } }, (err, result) => {
+        if (err) {
+            console.log(err);
+        } else {
+            res.send(result)
+        }
+        console.log(result[1].comment);
+    })
+}
+
+
+module.exports = { createData, feedData, serveData, feedCom, fetchCom , forReact}
 
